@@ -8,7 +8,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="stylesheet" href="/src/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Simon Says Game</title>
   </head>
   <body>
@@ -18,16 +18,16 @@
       </header>
       <section>
         <div class="simon-container">
-          <div class="simon-button green" onclick="handleClick('green')"></div>
-          <div class="simon-button red" onclick="handleClick('red')"></div>
-          <div class="simon-button yellow" onclick="handleClick('yellow')"></div>
-          <div class="simon-button blue" onclick="handleClick('blue')"></div>
+          <div class="simon-button green" data-sound="/public/sounds/GreenButtonSound.wav"></div>
+          <div class="simon-button red" data-sound="/public/sounds/RedButtonSound.wav"></div>
+          <div class="simon-button yellow" data-sound="/public/sounds/YellowButtonSound.wav"></div>
+          <div class="simon-button blue" data-sound="/public/sounds/BlueButtonSound.wav"></div>
           <div class="center" id="score">0</div>
 
       </section>
-          <button class="start-btn">Start</button>
+          <button class="start-btn"defer>Start</button>
       </div>
     </div>
-    <script src="src/script.js"></script>
+    <script src="script.js"></script>
   </body>
   </html>
