@@ -15,7 +15,7 @@ document.querySelectorAll('.simon-button').forEach(button => {
       console.log("Intentando reproducir:", soundPath); // Verifica la ruta
 
       let sound = new Audio(soundPath);
-      sound.volume = 0.40; // Reducir el volumen al 40%
+      sound.volume = 0.55; // Reducir el volumen al 40%
 
       sound.play().then(() => {
           console.log("Sonido reproducido con éxito");
@@ -106,7 +106,7 @@ function flashButton(color, callback) {
     audioPlayer.pause();
     audioPlayer.currentTime = 0;
     audioPlayer.src = button.getAttribute('data-sound');
-    audioPlayer.volume = 0.40 // Reducir el volumen al 40%;
+    audioPlayer.volume = 0.55 // Reducir el volumen al 40%;
     audioPlayer.play();
 
     setTimeout(() => {
