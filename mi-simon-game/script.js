@@ -3,9 +3,7 @@ let playerSequence = [];
 let level = 0;  
 let isPlaying = false;  
 let audioPlayer = new Audio(); 
-let totalRounds = localStorage.getItem('totalRounds') ? parseInt(localStorage.getItem('totalRounds')) : 0;
-
-document.getElementById('total-rounds').textContent = totalRounds;
+let totalRounds = 0;
 
 const buttons = document.querySelectorAll('.simon-button');
 const startButton = document.querySelector('.start-btn');
@@ -44,6 +42,7 @@ startButton.addEventListener('click', () => {
 });
 
 function startGame() {
+    totalRounds = 0;
     isPlaying = true;
     level = -1;
     sequence = [];

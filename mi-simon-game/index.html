@@ -15,25 +15,25 @@
     <div id="game-over-message" class="hidden"></div>
     <div class="game-wrapper">
       <header>
-        <h2 class="total-rounds">Total Rounds Passed: <span id="total-rounds">0</span></h2>
+        <h1 class="title">Simon Says Game</h1>
+        <h2 class="total-rounds"> Rounds Completed: <span id="total-rounds">0</span></h2>
         <div id="player-info" class="hidden">
         <h2>Name: <span id="display-name"></span></h2>
         </div>
-        <h1 class="title">Simon Says Game</h1>
       </header>
       <section>
         <div class="simon-container">
-          <div class="simon-button green" data-sound="/public/sounds/GreenButtonSound.wav"></div>
-          <div class="simon-button red" data-sound="/public/sounds/RedButtonSound.wav"></div>
-          <div class="simon-button yellow" data-sound="/public/sounds/YellowButtonSound.wav"></div>
-          <div class="simon-button blue" data-sound="/public/sounds/BlueButtonSound.wav"></div>
+          <div class="simon-button green" data-sound="sounds/GreenButtonSound.wav"></div>
+          <div class="simon-button red" data-sound="sounds/RedButtonSound.wav"></div>
+          <div class="simon-button yellow" data-sound="sounds/YellowButtonSound.wav"></div>
+          <div class="simon-button blue" data-sound="sounds/BlueButtonSound.wav"></div>
           <div class="center" id="score">0</div>
 
       </section>
       <button id="start-btn" class="start-btn" disabled>Start</button>
           <div id="name-container">
             <h2>Enter your name:</h2>
-            <input type="text" id="player-name" placeholder="Your name">
+            <input type="text" id="player-name" placeholder="Your name" maxlength="20">
             <button id="confirm-name-btn">Confirm</button>
           </div>
           <div id="leaderboard-container" style="display: none;">
