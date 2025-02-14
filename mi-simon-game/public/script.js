@@ -158,3 +158,74 @@ function endGame() {
   startButton.style.display = 'block';  // Mostrar botón de reinicio
   disableButtons(false);  // Asegurar que los botones estén habilitados para el reinicio
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const startButton = document.getElementById("start-btn");
+    const nameInput = document.getElementById("player-name");
+    const confirmNameBtn = document.getElementById("confirm-name-btn");
+    const nameContainer = document.getElementById("name-container");
+
+    // Verificar si ya hay un nombre guardado en LocalStorage
+    let playerName = localStorage.getItem("playerName");
+
+    if (playerName) {
+        nameContainer.classList.add("hidden"); // Oculta el cuadro de nombre
+        enableStartButton(); // Habilita el botón de inicio
+    }
+
+    confirmNameBtn.addEventListener("click", () => {
+        const name = nameInput.value.trim(); // Eliminar espacios en blanco
+
+        if (name) {
+            localStorage.setItem("playerName", name); // Guardar en LocalStorage
+            nameContainer.classList.add("hidden"); // Ocultar cuadro de nombre
+            enableStartButton(); // Habilitar botón de inicio
+        } else {
+            alert("Please enter a valid name."); // Mostrar alerta si está vacío
+        }
+    });
+
+    function enableStartButton() {
+        startButton.disabled = false;
+        startButton.style.opacity = 1;
+        startButton.style.pointerEvents = "auto"; // Permitir clics
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const startButton = document.getElementById("start-btn");
+  const nameInput = document.getElementById("player-name");
+  const confirmNameBtn = document.getElementById("confirm-name-btn");
+  const nameContainer = document.getElementById("name-container");
+  const playerInfo = document.getElementById("player-info");
+  const displayName = document.getElementById("display-name");
+
+  // Asegurar que la sección de ingresar nombre siempre esté visible al recargar
+  nameContainer.classList.remove("hidden");
+  playerInfo.classList.add("hidden"); // Ocultar la info del jugador
+  startButton.disabled = true; // Deshabilitar el botón de inicio
+
+  confirmNameBtn.addEventListener("click", () => {
+      const name = nameInput.value.trim(); // Eliminar espacios en blanco
+
+      if (name) {
+          nameContainer.classList.add("hidden"); // Ocultar la sección de entrada
+          showPlayerInfo(name); // Mostrar la sección con el nombre
+          enableStartButton(); // Habilitar botón de inicio
+      } else {
+          alert("Please enter a valid name."); // Mostrar alerta si el campo está vacío
+      }
+  });
+
+  function enableStartButton() {
+      startButton.disabled = false;
+      startButton.style.opacity = 1;
+      startButton.style.pointerEvents = "auto"; // Permitir clics
+  }
+
+  function showPlayerInfo(name) {
+      displayName.textContent = name; // Mostrar el nombre ingresado
+      playerInfo.classList.remove("hidden"); // Mostrar la sección del nombre
+  }
+});
