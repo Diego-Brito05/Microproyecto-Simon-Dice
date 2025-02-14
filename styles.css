@@ -225,3 +225,27 @@ body {
 #game-over-message.visible {
   opacity: 1;
 }
+
+/* Asegurar que el contenedor principal no corte contenido */
+body, html {
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  width: 100%;
+}
+
+/* Ajustar el tamaño del texto en pantallas pequeñas */
+@media (max-width: 600px) {
+  .title { /* Ajusta esto al nombre de tu clase del texto */
+    font-size: 16px; /* Reduce el tamaño del texto */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Añade un poco de margen */
+  }
+}
+
+/* Evitar que el contenido se solape */
+@media (max-width: 800px) {
+  .game-container { /* Asegúrate de que esta clase existe */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
