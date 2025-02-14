@@ -9,6 +9,14 @@ body {
 
 .title {
   text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.total-rounds {
+  text-align: center;
   font-size: 24px;
   font-weight: bold;
   color: white;
@@ -32,6 +40,12 @@ body {
   color: black;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease; /* Añadir una transición suave */
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+.start-btn:hover {
+  background-color: #d3d3d3; /* Oscurecer un poco el color de fondo */
 }
 
 /* Contenedor del juego */
@@ -43,7 +57,7 @@ body {
   border-radius: 50%;
   display: flex;
   flex-wrap: wrap;
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.5);
 }
 
 /* Botones de colores */
@@ -80,7 +94,7 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 

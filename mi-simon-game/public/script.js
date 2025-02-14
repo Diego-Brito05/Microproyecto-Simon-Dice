@@ -4,7 +4,7 @@ document.querySelectorAll('.simon-button').forEach(button => {
       console.log("Intentando reproducir:", soundPath); // Verifica la ruta
 
       let sound = new Audio(soundPath);
-      sound.volume = 0.3; // Reducir el volumen al 30%
+      sound.volume = 0.25; // Reducir el volumen al 25%
 
       sound.play().then(() => {
           console.log("Sonido reproducido con éxito");
@@ -19,6 +19,10 @@ let playerSequence = [];  // Secuencia ingresada por el jugador
 let level = 0;  // Nivel actual
 let isPlaying = false;  // Control del estado del juego
 let audioPlayer = new Audio(); // Reproductor de sonido global
+let totalRounds = localStorage.getItem('totalRounds') ? parseInt(localStorage.getItem('totalRounds')) : 0;
+
+// Mostrar el valor almacenado al cargar la página
+document.getElementById('total-rounds').textContent = totalRounds;
 
 // Referencias a los botones y a los elementos de la interfaz
 const buttons = document.querySelectorAll('.simon-button');
@@ -46,7 +50,7 @@ startButton.addEventListener('click', () => {
 // Función para iniciar el juego
 function startGame() {
   isPlaying = true;
-  level = 0;
+  level = -1;
   sequence = [];
   playerSequence = [];
   scoreDisplay.textContent = level;
@@ -59,6 +63,10 @@ function nextRound() {
   level++;
   playerSequence = [];
   scoreDisplay.textContent = level;  // Actualizar puntaje
+  if (level > 0) { // Solo aumenta si level es mayor que 0
+      totalRounds++; 
+      localStorage.setItem('totalRounds', totalRounds); // Guarda en localStorage
+      document.getElementById('total-rounds').textContent = totalRounds;} // Muestra en la interfaz
 
   disableButtons(true);  // Deshabilitar botones mientras se muestra el patrón
 
